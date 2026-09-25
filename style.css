@@ -1,0 +1,279 @@
+/* =========================================
+   GameshopUVG - Estilos generales
+   Paleta: verde oscuro -> verde azulado -> aqua
+   ========================================= */
+
+:root {
+  --verde-oscuro: #0b2a21;
+  --verde-medio: #0f4d3f;
+  --verde-azulado: #12866f;
+  --aqua: #2ec4a8;
+  --aqua-claro: #7fe3cf;
+  --texto-claro: #eafff8;
+  --texto-suave: #b7d9d0;
+  --fondo-tarjeta: #0e352b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Verdana, Arial, sans-serif;
+  background-color: var(--verde-oscuro);
+  color: var(--texto-claro);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--verde-azulado), var(--aqua));
+  color: #04140f;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--aqua-claro);
+  color: var(--aqua-claro);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--aqua);
+  color: var(--texto-claro);
+}
+
+.btn-link {
+  background: none;
+  color: var(--aqua-claro);
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* ---------- Encabezado ---------- */
+.site-header {
+  background: linear-gradient(90deg, var(--verde-oscuro), var(--verde-medio));
+  padding: 14px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  color: var(--texto-claro);
+}
+
+.logo-text strong {
+  color: var(--aqua);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.main-nav a {
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.main-nav a:hover {
+  color: var(--aqua-claro);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 340px;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.hero-info {
+  position: relative;
+  padding: 40px 40px;
+  max-width: 560px;
+}
+
+.hero-info h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.hero-info p {
+  color: var(--texto-suave);
+  margin-bottom: 20px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Secciones ---------- */
+.seccion {
+  padding: 40px 30px;
+}
+
+.seccion-alt {
+  background-color: var(--verde-medio);
+}
+
+.seccion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.seccion-header h2 {
+  font-size: 1.4rem;
+  border-left: 4px solid var(--aqua);
+  padding-left: 10px;
+}
+
+/* ---------- Tarjetas de juegos ---------- */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  background-color: var(--fondo-tarjeta);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(46, 196, 168, 0.2);
+}
+
+.game-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 12px 14px;
+}
+
+.game-info h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.precio {
+  color: var(--aqua-claro);
+  font-weight: bold;
+}
+
+/* ---------- Pie de página ---------- */
+.site-footer {
+  background-color: var(--verde-oscuro);
+  border-top: 1px solid rgba(46, 196, 168, 0.25);
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.footer-col h4 {
+  color: var(--aqua-claro);
+  margin-bottom: 10px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col a {
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.footer-col a:hover {
+  color: var(--aqua);
+}
+
+.footer-copy {
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 0.8rem;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 700px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-info {
+    padding: 24px 20px;
+  }
+}
