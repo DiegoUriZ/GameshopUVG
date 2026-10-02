@@ -266,6 +266,140 @@ img {
   font-size: 0.8rem;
 }
 
+/* ---------- Elementos de logica (radios/checkbox), nunca visibles ---------- */
+.oculto {
+  display: none;
+}
+
+/* Los <label> del nav y del footer deben verse igual que los <a> de siempre */
+.main-nav label,
+.footer-col label {
+  cursor: pointer;
+}
+
+.main-nav label {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.main-nav label:hover {
+  color: var(--aqua-claro);
+}
+
+.footer-col label {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.footer-col label:hover {
+  color: var(--aqua);
+}
+
+/* Los <label> usados como botones (.btn ...) heredan el estilo normal de .btn,
+   solo nos aseguramos de que se vean clickeables igual que un boton real */
+label.btn {
+  display: inline-block;
+}
+
+/* ---------- Sistema de vistas: Inicio <-> Catalogo ---------- */
+
+/* Catalogo oculto por defecto */
+.vista-catalogo-contenido {
+  display: none;
+}
+
+/* Al activar el radio de catalogo: se oculta Inicio y se muestra Catalogo */
+#vista-catalogo:checked ~ .vista-inicio-contenido {
+  display: none;
+}
+
+#vista-catalogo:checked ~ .vista-catalogo-contenido {
+  display: block;
+}
+
+/* ---------- Buscador del catalogo (dropdown) ---------- */
+.buscador-catalogo {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.buscador-caja {
+  display: inline-block;
+  background-color: var(--verde-medio);
+  color: var(--texto-claro);
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid rgba(46, 196, 168, 0.3);
+}
+
+.buscador-opciones {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 46px;
+  width: 280px;
+  max-height: 320px;
+  overflow-y: auto;
+  background-color: var(--fondo-tarjeta);
+  border: 1px solid rgba(46, 196, 168, 0.3);
+  border-radius: 8px;
+  z-index: 15;
+}
+
+#toggle-busqueda-catalogo:checked ~ .buscador-opciones {
+  display: block;
+}
+
+.buscador-opciones a {
+  display: block;
+  padding: 10px 14px;
+  color: var(--texto-claro);
+  text-decoration: none;
+  border-bottom: 1px solid var(--verde-medio);
+}
+
+.buscador-opciones a:last-child {
+  border-bottom: none;
+}
+
+.buscador-opciones a:hover {
+  background-color: var(--verde-medio);
+}
+
+/* ---------- Cuadricula de 15 juegos con scroll propio ---------- */
+.grid-scroll {
+  max-height: 560px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scroll-behavior: smooth;
+}
+
+.grid-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.grid-scroll::-webkit-scrollbar-track {
+  background-color: var(--verde-medio);
+  border-radius: 5px;
+}
+
+.grid-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--aqua);
+  border-radius: 5px;
+}
+
+.grid-scroll .game-card {
+  scroll-margin-top: 10px;
+}
+
+.volver-abajo {
+  margin-top: 24px;
+  text-align: center;
+}
+
 /* ---------- Responsivo ---------- */
 @media (max-width: 700px) {
   .header-content {

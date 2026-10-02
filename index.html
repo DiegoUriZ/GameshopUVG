@@ -8,19 +8,30 @@
 </head>
 <body>
 
-  <!-- ENCABEZADO Y MENU DE NAVEGACION -->
+  <!-- ======================================================
+       Radios ocultos: controlan que vista se muestra
+       (Inicio o Catalogo). Cualquier boton/link "for" uno
+       de estos dos radios cambia la vista, sin JavaScript.
+       ====================================================== -->
+  <input type="radio" name="vista" id="vista-inicio" class="oculto" checked>
+  <input type="radio" name="vista" id="vista-catalogo" class="oculto">
+
+  <!-- Checkbox oculto: abre/cierra el dropdown del buscador del catalogo -->
+  <input type="checkbox" id="toggle-busqueda-catalogo" class="oculto">
+
+  <!-- ENCABEZADO Y MENU DE NAVEGACION (siempre visible) -->
   <header class="site-header">
     <div class="header-content">
       <div class="logo">
-        <img src="img/logo-placeholder.jpg" alt="Logo GameshopUVG" class="logo-img" />
+        <img src="img/logo.png" alt="Logo GameshopUVG" class="logo-img" />
         <span class="logo-text">Gameshop<strong>UVG</strong></span>
       </div>
 
       <nav class="main-nav">
         <ul>
-          <li><a href="#inicio">Tienda</a></li>
-          <li><a href="#populares">Populares</a></li>
-          <li><a href="#catalogo">Catálogo</a></li>
+          <li><label for="vista-inicio">Tienda</label></li>
+          <li><label for="vista-inicio">Populares</label></li>
+          <li><label for="vista-catalogo">Catálogo</label></li>
           <li><a href="#ofertas">Ofertas</a></li>
         </ul>
       </nav>
@@ -31,90 +42,185 @@
     </div>
   </header>
 
-  <!-- SECCION PRINCIPAL / HERO -->
-  <section class="hero" id="inicio">
-    <div class="hero-image">
-      <img src="img/banner-hero.jpg" alt="Banner destacado" />
-    </div>
-    <div class="hero-info">
-      <h1>Bienvenido a GameshopUVG</h1>
-      <p>Explora catálogo, descubre los juegos más populares y arma tu propia biblioteca.</p>
-      <div class="hero-buttons">
-        <button class="btn btn-primary">Ver más juegos</button>
-        <button class="btn btn-secondary">Ver populares</button>
+  <!-- ======================================================
+       VISTA: INICIO (hero + populares)
+       Se oculta por completo cuando se activa la vista Catalogo
+       ====================================================== -->
+  <div class="vista-inicio-contenido">
+
+    <!-- SECCION PRINCIPAL / HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero-image">
+        <img src="img/banneruvg.png" alt="Banner destacado" />
       </div>
-    </div>
-  </section>
-
-  <!-- SECCION DE JUEGOS POPULARES -->
-  <section class="seccion" id="populares">
-    <div class="seccion-header">
-      <h2>Populares ahora</h2>
-      <button class="btn btn-link">Ver todos</button>
-    </div>
-
-    <div class="game-grid">
-      <div class="game-card">
-        <img src="img/juego1.jpg" alt="Juego 1" />
-        <div class="game-info">
-          <h3>ULTRAKILL</h3>
-          <p class="precio">Q 125.00</p>
+      <div class="hero-info">
+        <h1>Bienvenido a GameshopUVG</h1>
+        <p>Explora catálogo, descubre los juegos más populares y arma tu propia biblioteca.</p>
+        <div class="hero-buttons">
+          <label for="vista-catalogo" class="btn btn-primary">Ver más juegos</label>
+          <a href="#populares" class="btn btn-secondary">Ver populares</a>
         </div>
       </div>
+    </section>
 
-      <div class="game-card">
-        <img src="img/juego2.jpg" alt="Juego 2" />
-        <div class="game-info">
-          <h3>GEOMETRY DASH</h3>
-          <p class="precio">Q 85.00</p>
-        </div>
+    <!-- SECCION DE JUEGOS POPULARES -->
+    <section class="seccion" id="populares">
+      <div class="seccion-header">
+        <h2>Populares ahora</h2>
+        <label for="vista-catalogo" class="btn btn-link">Ver todos</label>
       </div>
 
-      <div class="game-card">
-        <img src="img/juego3.jpg" alt="Juego 3" />
-        <div class="game-info">
-          <h3>FORTNITE</h3>
-          <p class="precio">Gratis</p>
+      <div class="game-grid">
+        <div class="game-card">
+          <img src="img/juego1.jpg" alt="Juego 1" />
+          <div class="game-info">
+            <h3>ULTRAKILL</h3>
+            <p class="precio">Q 125.00</p>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <img src="img/juego2.jpg" alt="Juego 2" />
+          <div class="game-info">
+            <h3>GEOMETRY DASH</h3>
+            <p class="precio">Q 85.00</p>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <img src="img/juego3.jpg" alt="Juego 3" />
+          <div class="game-info">
+            <h3>FORTNITE</h3>
+            <p class="precio">Gratis</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SECCION DE CATALOGO -->
-  <section class="seccion seccion-alt" id="catalogo">
+  </div>
+
+  <!-- ======================================================
+       VISTA: CATALOGO
+       Oculta por defecto. Se muestra al activar #vista-catalogo
+       (boton "Ver mas juegos", link "Catalogo" del menu, etc.)
+       ====================================================== -->
+  <section class="seccion seccion-alt vista-catalogo-contenido" id="catalogo">
     <div class="seccion-header">
       <h2>Catálogo</h2>
-      <button class="btn btn-link">Ver más juegos</button>
+      <label for="vista-inicio" class="btn btn-outline">← Volver a la página principal</label>
     </div>
 
-    <div class="game-grid">
-      <div class="game-card">
-        <img src="img/juego4.jpg" alt="Juego 4" />
-        <div class="game-info">
-          <h3>GRAND THEFT AUTO V</h3>
-          <p class="precio">Q 325.00</p>
-        </div>
+    <!-- Buscador tipo dropdown con los 15 juegos del catalogo -->
+    <div class="buscador-catalogo">
+      <label for="toggle-busqueda-catalogo" class="buscador-caja">🔍 Buscar un juego ▾</label>
+      <div class="buscador-opciones">
+        <a href="#juego1">Counter-Strike 2</a>
+        <a href="#juego2">Dota 2</a>
+        <a href="#juego3">PUBG: BATTLEGROUNDS</a>
+        <a href="#juego4">Grand Theft Auto V</a>
+        <a href="#juego5">Apex Legends</a>
+        <a href="#juego6">Rust</a>
+        <a href="#juego7">Terraria</a>
+        <a href="#juego8">Stardew Valley</a>
+        <a href="#juego9">Elden Ring</a>
+        <a href="#juego10">Cyberpunk 2077</a>
+        <a href="#juego11">Red Dead Redemption 2</a>
+        <a href="#juego12">The Witcher 3: Wild Hunt</a>
+        <a href="#juego13">Among Us</a>
+        <a href="#juego14">Baldur's Gate 3</a>
+        <a href="#juego15">Hollow Knight</a>
       </div>
+    </div>
 
-      <div class="game-card">
-        <img src="img/juego5.jpg" alt="Juego 5" />
-        <div class="game-info">
-          <h3>FORZA HORIZON 5</h3>
-          <p class="precio">Q 225.00</p>
-        </div>
-      </div>
+    <!-- Cuadricula con scroll propio (se ven varias filas y se puede
+         subir/bajar para ver el resto de los 15 juegos) -->
+    <div class="grid-scroll">
+      <div class="game-grid">
 
-      <div class="game-card">
-        <img src="img/juego6.jpg" alt="Juego 6" />
-        <div class="game-info">
-          <h3>CALL OF DUTY</h3>
-          <p class="precio">Q 180.00</p>
+        <div class="game-card" id="juego1">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg" alt="Counter-Strike 2" />
+          <div class="game-info"><h3>Counter-Strike 2</h3></div>
         </div>
+
+        <div class="game-card" id="juego2">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg" alt="Dota 2" />
+          <div class="game-info"><h3>Dota 2</h3></div>
+        </div>
+
+        <div class="game-card" id="juego3">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/header.jpg" alt="PUBG: BATTLEGROUNDS" />
+          <div class="game-info"><h3>PUBG: BATTLEGROUNDS</h3></div>
+        </div>
+
+        <div class="game-card" id="juego4">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg" alt="Grand Theft Auto V" />
+          <div class="game-info"><h3>Grand Theft Auto V</h3></div>
+        </div>
+
+        <div class="game-card" id="juego5">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg" alt="Apex Legends" />
+          <div class="game-info"><h3>Apex Legends</h3></div>
+        </div>
+
+        <div class="game-card" id="juego6">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg" alt="Rust" />
+          <div class="game-info"><h3>Rust</h3></div>
+        </div>
+
+        <div class="game-card" id="juego7">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg" alt="Terraria" />
+          <div class="game-info"><h3>Terraria</h3></div>
+        </div>
+
+        <div class="game-card" id="juego8">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg" alt="Stardew Valley" />
+          <div class="game-info"><h3>Stardew Valley</h3></div>
+        </div>
+
+        <div class="game-card" id="juego9">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg" alt="Elden Ring" />
+          <div class="game-info"><h3>Elden Ring</h3></div>
+        </div>
+
+        <div class="game-card" id="juego10">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077" />
+          <div class="game-info"><h3>Cyberpunk 2077</h3></div>
+        </div>
+
+        <div class="game-card" id="juego11">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2" />
+          <div class="game-info"><h3>Red Dead Redemption 2</h3></div>
+        </div>
+
+        <div class="game-card" id="juego12">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg" alt="The Witcher 3: Wild Hunt" />
+          <div class="game-info"><h3>The Witcher 3: Wild Hunt</h3></div>
+        </div>
+
+        <div class="game-card" id="juego13">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/header.jpg" alt="Among Us" />
+          <div class="game-info"><h3>Among Us</h3></div>
+        </div>
+
+        <div class="game-card" id="juego14">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/header.jpg" alt="Baldur's Gate 3" />
+          <div class="game-info"><h3>Baldur's Gate 3</h3></div>
+        </div>
+
+        <div class="game-card" id="juego15">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/header.jpg" alt="Hollow Knight" />
+          <div class="game-info"><h3>Hollow Knight</h3></div>
+        </div>
+
       </div>
+    </div>
+
+    <div class="volver-abajo">
+      <label for="vista-inicio" class="btn btn-outline">← Volver a la página principal</label>
     </div>
   </section>
 
-  <!-- PIE DE PAGINA -->
+  <!-- PIE DE PAGINA (siempre visible) -->
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-col">
@@ -125,9 +231,9 @@
       <div class="footer-col">
         <h4>Enlaces</h4>
         <ul>
-          <li><a href="#inicio">Tienda</a></li>
-          <li><a href="#populares">Populares</a></li>
-          <li><a href="#catalogo">Catálogo</a></li>
+          <li><label for="vista-inicio">Tienda</label></li>
+          <li><label for="vista-inicio">Populares</label></li>
+          <li><label for="vista-catalogo">Catálogo</label></li>
         </ul>
       </div>
 
