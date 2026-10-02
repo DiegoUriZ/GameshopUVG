@@ -16,9 +16,6 @@
   <input type="radio" name="vista" id="vista-inicio" class="oculto" checked>
   <input type="radio" name="vista" id="vista-catalogo" class="oculto">
 
-  <!-- Checkbox oculto: abre/cierra el dropdown del buscador del catalogo -->
-  <input type="checkbox" id="toggle-busqueda-catalogo" class="oculto">
-
   <!-- ENCABEZADO Y MENU DE NAVEGACION (siempre visible) -->
   <header class="site-header">
     <div class="header-content">
@@ -94,133 +91,31 @@
             <p class="precio">Gratis</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="seccion ofertas-section" id="ofertas">
-      <div class="ofertas-heading">
-        <div>
-          <p class="ofertas-eyebrow">PRECIOS POR TIEMPO LIMITADO</p>
-          <h2>Ofertas de la semana</h2>
-          <p class="ofertas-description">Grandes aventuras, mejores precios. Encuentra tu próxima partida.</p>
+        <div class="game-card">
+          <img src="img/juego4.jpg" alt="Juego 4" />
+          <div class="game-info">
+            <h3>GRAND THEFT AUTO V</h3>
+            <p class="precio">Q 229.00</p>
+          </div>
         </div>
-        <p class="ofertas-count" id="ofertas-count" aria-live="polite">8 ofertas disponibles</p>
+
+        <div class="game-card">
+          <img src="img/juego5.jpg" alt="Juego 5" />
+          <div class="game-info">
+            <h3>FORZA HORIZON 5</h3>
+            <p class="precio">Q 458.00</p>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <img src="img/juego6.jpg" alt="Juego 6" />
+          <div class="game-info">
+            <h3>CALL OF DUTY</h3>
+            <p class="precio">Gratis</p>
+          </div>
+        </div>
       </div>
-
-      <div class="ofertas-filtros" role="group" aria-label="Filtrar ofertas por género">
-        <button class="filtro-oferta activo" type="button" data-filter="todas" aria-pressed="true">Todas</button>
-        <button class="filtro-oferta" type="button" data-filter="accion" aria-pressed="false">Acción</button>
-        <button class="filtro-oferta" type="button" data-filter="aventura" aria-pressed="false">Aventura</button>
-        <button class="filtro-oferta" type="button" data-filter="indie" aria-pressed="false">Indie</button>
-        <button class="filtro-oferta" type="button" data-filter="rpg" aria-pressed="false">RPG</button>
-      </div>
-
-      <div class="ofertas-grid" id="ofertas-grid">
-        <article class="oferta-card" data-category="accion rpg">
-          <a class="oferta-imagen" href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank" rel="noopener noreferrer" aria-label="Ver Cyberpunk 2077 en Steam">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077" loading="lazy" />
-            <span class="descuento">-50%</span>
-          </a>
-          <div class="oferta-info">
-            <p class="oferta-genero">Acción · RPG</p>
-            <h3>Cyberpunk 2077</h3>
-            <div class="oferta-precios"><span class="precio-anterior">Q 399.00</span><strong>Q 199.50</strong></div>
-            <a class="btn btn-oferta" href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank" rel="noopener noreferrer">Ver oferta <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-
-        <article class="oferta-card" data-category="accion aventura rpg">
-          <a class="oferta-imagen" href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" rel="noopener noreferrer" aria-label="Ver ELDEN RING en Steam">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg" alt="ELDEN RING" loading="lazy" />
-            <span class="descuento">-25%</span>
-          </a>
-          <div class="oferta-info">
-            <p class="oferta-genero">Acción · Aventura · RPG</p>
-            <h3>ELDEN RING</h3>
-            <div class="oferta-precios"><span class="precio-anterior">Q 499.00</span><strong>Q 374.25</strong></div>
-            <a class="btn btn-oferta" href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" rel="noopener noreferrer">Ver oferta <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-
-        <article class="oferta-card" data-category="accion aventura">
-          <a class="oferta-imagen" href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/" target="_blank" rel="noopener noreferrer" aria-label="Ver Red Dead Redemption 2 en Steam">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2" loading="lazy" />
-            <span class="descuento">-50%</span>
-          </a>
-          <div class="oferta-info">
-            <p class="oferta-genero">Acción · Aventura</p>
-            <h3>Red Dead Redemption 2</h3>
-            <div class="oferta-precios"><span class="precio-anterior">Q 399.00</span><strong>Q 199.50</strong></div>
-            <a class="btn btn-oferta" href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/" target="_blank" rel="noopener noreferrer">Ver oferta <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-
-        <article class="oferta-card" data-category="accion aventura rpg">
-          <a class="oferta-imagen" href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank" rel="noopener noreferrer" aria-label="Ver The Witcher 3: Wild Hunt en Steam">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg" alt="The Witcher 3: Wild Hunt" loading="lazy" />
-            <span class="descuento">-75%</span>
-          </a>
-          <div class="oferta-info">
-            <p class="oferta-genero">Acción · Aventura · RPG</p>
-            <h3>The Witcher 3: Wild Hunt</h3>
-            <div class="oferta-precios"><span class="precio-anterior">Q 199.00</span><strong>Q 49.75</strong></div>
-            <a class="btn btn-oferta" href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank" rel="noopener noreferrer">Ver oferta <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-
-        <article class="oferta-card" data-category="accion aventura indie">
-          <a class="oferta-imagen" href="https://store.steampowered.com/app/367520/Hollow_Knight/" target="_blank" rel="noopener noreferrer" aria-label="Ver Hollow Knight en Steam">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/header.jpg" alt="Hollow Knight" loading="lazy" />
-            <span class="descuento">-50%</span>
-          </a>
-          <div class="oferta-info">
-            <p class="oferta-genero">Acción · Aventura · Indie</p>
-            <h3>Hollow Knight</h3>
-            <div class="oferta-precios"><span class="precio-anterior">Q 89.00</span><strong>Q 44.50</strong></div>
-            <a class="btn btn-oferta" href="https://store.steampowered.com/app/367520/Hollow_Knight/" target="_blank" rel="noopener noreferrer">Ver oferta <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-
-        <article class="oferta-card" data-category="aventura indie">
-          <a class="oferta-imagen" href="https://store.steampowered.com/app/413150/Stardew_Valley/" target="_blank" rel="noopener noreferrer" aria-label="Ver Stardew Valley en Steam">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg" alt="Stardew Valley" loading="lazy" />
-            <span class="descuento">-30%</span>
-          </a>
-          <div class="oferta-info">
-            <p class="oferta-genero">Aventura · Indie</p>
-            <h3>Stardew Valley</h3>
-            <div class="oferta-precios"><span class="precio-anterior">Q 89.00</span><strong>Q 62.30</strong></div>
-            <a class="btn btn-oferta" href="https://store.steampowered.com/app/413150/Stardew_Valley/" target="_blank" rel="noopener noreferrer">Ver oferta <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-
-        <article class="oferta-card" data-category="aventura indie">
-          <a class="oferta-imagen" href="https://store.steampowered.com/app/105600/Terraria/" target="_blank" rel="noopener noreferrer" aria-label="Ver Terraria en Steam">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg" alt="Terraria" loading="lazy" />
-            <span class="descuento">-50%</span>
-          </a>
-          <div class="oferta-info">
-            <p class="oferta-genero">Aventura · Indie</p>
-            <h3>Terraria</h3>
-            <div class="oferta-precios"><span class="precio-anterior">Q 89.00</span><strong>Q 44.50</strong></div>
-            <a class="btn btn-oferta" href="https://store.steampowered.com/app/105600/Terraria/" target="_blank" rel="noopener noreferrer">Ver oferta <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-
-        <article class="oferta-card" data-category="accion aventura indie rpg">
-          <a class="oferta-imagen" href="https://store.steampowered.com/app/1145360/Hades/" target="_blank" rel="noopener noreferrer" aria-label="Ver Hades en Steam">
-            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/header.jpg" alt="Hades" loading="lazy" />
-            <span class="descuento">-50%</span>
-          </a>
-          <div class="oferta-info">
-            <p class="oferta-genero">Acción · Aventura · Indie · RPG</p>
-            <h3>Hades</h3>
-            <div class="oferta-precios"><span class="precio-anterior">Q 199.00</span><strong>Q 99.50</strong></div>
-            <a class="btn btn-oferta" href="https://store.steampowered.com/app/1145360/Hades/" target="_blank" rel="noopener noreferrer">Ver oferta <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-      </div>
-      <p class="ofertas-nota">Precios de referencia en quetzales. El precio final y la disponibilidad dependen de Steam.</p>
     </section>
 
   </div>
@@ -238,6 +133,9 @@
 
     <!-- Buscador tipo dropdown con los 15 juegos del catalogo -->
     <div class="buscador-catalogo">
+      <!-- Checkbox oculto: abre/cierra el dropdown. Debe estar DENTRO del mismo
+           div que .buscador-opciones para que el selector "~" lo alcance -->
+      <input type="checkbox" id="toggle-busqueda-catalogo" class="oculto">
       <label for="toggle-busqueda-catalogo" class="buscador-caja">🔍 Buscar un juego ▾</label>
       <div class="buscador-opciones">
         <a href="#juego1">Counter-Strike 2</a>
@@ -265,77 +163,122 @@
 
         <div class="game-card" id="juego1">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg" alt="Counter-Strike 2" />
-          <div class="game-info"><h3>Counter-Strike 2</h3></div>
+          <div class="game-info">
+            <h3>Counter-Strike 2</h3>
+            <p class="precio">Gratis</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego2">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg" alt="Dota 2" />
-          <div class="game-info"><h3>Dota 2</h3></div>
+          <div class="game-info">
+            <h3>Dota 2</h3>
+            <p class="precio">Gratis</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego3">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/header.jpg" alt="PUBG: BATTLEGROUNDS" />
-          <div class="game-info"><h3>PUBG: BATTLEGROUNDS</h3></div>
+          <div class="game-info">
+            <h3>PUBG: BATTLEGROUNDS</h3>
+            <p class="precio">Gratis</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego4">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg" alt="Grand Theft Auto V" />
-          <div class="game-info"><h3>Grand Theft Auto V</h3></div>
+          <div class="game-info">
+            <h3>Grand Theft Auto V</h3>
+            <p class="precio">Q 229.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego5">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg" alt="Apex Legends" />
-          <div class="game-info"><h3>Apex Legends</h3></div>
+          <div class="game-info">
+            <h3>Apex Legends</h3>
+            <p class="precio">Gratis</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego6">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg" alt="Rust" />
-          <div class="game-info"><h3>Rust</h3></div>
+          <div class="game-info">
+            <h3>Rust</h3>
+            <p class="precio">Q 305.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego7">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg" alt="Terraria" />
-          <div class="game-info"><h3>Terraria</h3></div>
+          <div class="game-info">
+            <h3>Terraria</h3>
+            <p class="precio">Q 76.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego8">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg" alt="Stardew Valley" />
-          <div class="game-info"><h3>Stardew Valley</h3></div>
+          <div class="game-info">
+            <h3>Stardew Valley</h3>
+            <p class="precio">Q 114.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego9">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg" alt="Elden Ring" />
-          <div class="game-info"><h3>Elden Ring</h3></div>
+          <div class="game-info">
+            <h3>Elden Ring</h3>
+            <p class="precio">Q 458.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego10">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077" />
-          <div class="game-info"><h3>Cyberpunk 2077</h3></div>
+          <div class="game-info">
+            <h3>Cyberpunk 2077</h3>
+            <p class="precio">Q 458.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego11">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2" />
-          <div class="game-info"><h3>Red Dead Redemption 2</h3></div>
+          <div class="game-info">
+            <h3>Red Dead Redemption 2</h3>
+            <p class="precio">Q 458.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego12">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg" alt="The Witcher 3: Wild Hunt" />
-          <div class="game-info"><h3>The Witcher 3: Wild Hunt</h3></div>
+          <div class="game-info">
+            <h3>The Witcher 3: Wild Hunt</h3>
+            <p class="precio">Q 305.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego13">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/header.jpg" alt="Among Us" />
-          <div class="game-info"><h3>Among Us</h3></div>
+          <div class="game-info">
+            <h3>Among Us</h3>
+            <p class="precio">Q 38.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego14">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/header.jpg" alt="Baldur's Gate 3" />
-          <div class="game-info"><h3>Baldur's Gate 3</h3></div>
+          <div class="game-info">
+            <h3>Baldur's Gate 3</h3>
+            <p class="precio">Q 458.00</p>
+          </div>
         </div>
 
         <div class="game-card" id="juego15">
           <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/header.jpg" alt="Hollow Knight" />
-          <div class="game-info"><h3>Hollow Knight</h3></div>
+          <div class="game-info">
+            <h3>Hollow Knight</h3>
+            <p class="precio">Q 114.00</p>
+          </div>
         </div>
 
       </div>
@@ -375,6 +318,5 @@
     <p class="footer-copy">© 2026 GameshopUVG — Proyecto de TIC</p>
   </footer>
 
-  <script src="script.js" defer></script>
 </body>
 </html>
