@@ -39,16 +39,11 @@ img {
   padding: 10px 20px;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s ease;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
 .btn:hover {
   opacity: 0.9;
-  transform: scale(1.08) rotate(-2deg); /* cartoon: crece y se inclina */
-}
-
-.btn:active {
-  transform: scale(0.95); /* se "aplasta" al hacer clic */
 }
 
 .btn-primary {
@@ -378,7 +373,7 @@ label.btn {
 .grid-scroll {
   max-height: 560px;
   overflow-y: auto;
-  padding: 12px; /* espacio para que la tarjeta agrandada no se corte */
+  padding-right: 8px;
   scroll-behavior: smooth;
 }
 
@@ -405,6 +400,184 @@ label.btn {
   text-align: center;
 }
 
+/* ---------- Ofertas ---------- */
+.ofertas-section {
+  background: linear-gradient(135deg, #123b30, #0b2a21 68%);
+  scroll-margin-top: 84px;
+}
+
+.ofertas-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.ofertas-eyebrow {
+  color: var(--aqua-claro);
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.ofertas-heading h2 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.ofertas-description,
+.ofertas-count {
+  color: var(--texto-suave);
+}
+
+.ofertas-description {
+  margin-top: 7px;
+}
+
+.ofertas-count {
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.ofertas-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filtro-oferta {
+  min-height: 38px;
+  padding: 7px 15px;
+  border: 1px solid rgba(127, 227, 207, 0.35);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--texto-suave);
+  font: inherit;
+  cursor: pointer;
+}
+
+.filtro-oferta:hover,
+.filtro-oferta.activo {
+  background: var(--aqua);
+  border-color: var(--aqua);
+  color: #04140f;
+}
+
+.filtro-oferta:focus-visible,
+.btn-oferta:focus-visible,
+.oferta-imagen:focus-visible {
+  outline: 2px solid var(--aqua-claro);
+  outline-offset: 3px;
+}
+
+.ofertas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
+  gap: 18px;
+}
+
+.oferta-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #0e352b;
+  border: 1px solid rgba(46, 196, 168, 0.25);
+  border-radius: 6px;
+}
+
+.oferta-card[hidden] {
+  display: none;
+}
+
+.oferta-imagen {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 460 / 215;
+  background: #071d17;
+}
+
+.oferta-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.oferta-imagen:hover img {
+  transform: scale(1.04);
+}
+
+.descuento {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 8px;
+  background: #b8ef5b;
+  color: #15220a;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.oferta-info {
+  padding: 13px 14px 14px;
+}
+
+.ofertas-nota {
+  margin-top: 16px;
+  color: var(--texto-suave);
+  font-size: 0.8rem;
+}
+
+.oferta-genero {
+  min-height: 1.4em;
+  color: var(--aqua-claro);
+  font-size: 0.76rem;
+}
+
+.oferta-info h3 {
+  min-height: 2.8em;
+  margin: 3px 0 8px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.oferta-precios {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin-bottom: 13px;
+}
+
+.precio-anterior {
+  color: #91afa5;
+  font-size: 0.84rem;
+  text-decoration: line-through;
+}
+
+.oferta-precios strong {
+  color: #d6ff7a;
+  font-size: 1.1rem;
+}
+
+.btn-oferta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid rgba(127, 227, 207, 0.38);
+  border-radius: 4px;
+  color: var(--texto-claro);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.btn-oferta:hover {
+  background: var(--verde-medio);
+}
+
 /* ---------- Responsivo ---------- */
 @media (max-width: 700px) {
   .header-content {
@@ -415,49 +588,14 @@ label.btn {
   .hero-info {
     padding: 24px 20px;
   }
-}
 
-/* =========================================
-   ANIMACIONES (solo CSS, sin JavaScript)
-   ========================================= */
+  .ofertas-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-/* Fade in: de invisible (0) a visible (1) */
-@keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Pop in estilo cartoon: aparece, se pasa un poquito de tamano y rebota a su lugar */
-@keyframes pop-in {
-  0%   { opacity: 0; transform: scale(0.8) translateY(30px); }
-  60%  { opacity: 1; transform: scale(1.06) translateY(-6px); }
-  100% { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-/* Cada vista (Inicio / Catalogo) aparece con fade in al cargar o al cambiar */
-.vista-inicio-contenido,
-.vista-catalogo-contenido {
-  animation: fade-in 0.5s ease;
-}
-
-/* El texto del hero y las tarjetas aparecen con el pop cartoon.
-   "backwards" = la animacion no bloquea el hover de mas abajo */
-.hero-info,
-.game-card {
-  animation: pop-in 0.6s ease-out backwards;
-}
-
-/* Las tarjetas aparecen una tras otra (con un pequeno retraso) */
-.game-card:nth-child(2) { animation-delay: 0.1s; }
-.game-card:nth-child(3) { animation-delay: 0.2s; }
-.game-card:nth-child(n+4) { animation-delay: 0.3s; }
-
-/* Hover en el catalogo: la tarjeta crece un poco y al quitar el mouse
-   regresa sola a su tamano normal gracias al "transition" */
-.game-card {
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.grid-scroll .game-card:hover {
-  transform: scale(1.05);
+  .ofertas-heading h2 {
+    font-size: 1.5rem;
+  }
 }
