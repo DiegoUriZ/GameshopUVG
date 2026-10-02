@@ -39,11 +39,16 @@ img {
   padding: 10px 20px;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s ease;
 }
 
 .btn:hover {
   opacity: 0.9;
+  transform: scale(1.08) rotate(-2deg); /* cartoon: crece y se inclina */
+}
+
+.btn:active {
+  transform: scale(0.95); /* se "aplasta" al hacer clic */
 }
 
 .btn-primary {
@@ -373,7 +378,7 @@ label.btn {
 .grid-scroll {
   max-height: 560px;
   overflow-y: auto;
-  padding-right: 8px;
+  padding: 12px; /* espacio para que la tarjeta agrandada no se corte */
   scroll-behavior: smooth;
 }
 
@@ -410,4 +415,49 @@ label.btn {
   .hero-info {
     padding: 24px 20px;
   }
+}
+
+/* =========================================
+   ANIMACIONES (solo CSS, sin JavaScript)
+   ========================================= */
+
+/* Fade in: de invisible (0) a visible (1) */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Pop in estilo cartoon: aparece, se pasa un poquito de tamano y rebota a su lugar */
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0.8) translateY(30px); }
+  60%  { opacity: 1; transform: scale(1.06) translateY(-6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Cada vista (Inicio / Catalogo) aparece con fade in al cargar o al cambiar */
+.vista-inicio-contenido,
+.vista-catalogo-contenido {
+  animation: fade-in 0.5s ease;
+}
+
+/* El texto del hero y las tarjetas aparecen con el pop cartoon.
+   "backwards" = la animacion no bloquea el hover de mas abajo */
+.hero-info,
+.game-card {
+  animation: pop-in 0.6s ease-out backwards;
+}
+
+/* Las tarjetas aparecen una tras otra (con un pequeno retraso) */
+.game-card:nth-child(2) { animation-delay: 0.1s; }
+.game-card:nth-child(3) { animation-delay: 0.2s; }
+.game-card:nth-child(n+4) { animation-delay: 0.3s; }
+
+/* Hover en el catalogo: la tarjeta crece un poco y al quitar el mouse
+   regresa sola a su tamano normal gracias al "transition" */
+.game-card {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.grid-scroll .game-card:hover {
+  transform: scale(1.05);
 }
