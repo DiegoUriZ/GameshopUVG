@@ -436,7 +436,9 @@ label.btn {
 
 /* Cada vista (Inicio / Catalogo) aparece con fade in al cargar o al cambiar */
 .vista-inicio-contenido,
-.vista-catalogo-contenido {
+.vista-catalogo-contenido,
+.vista-login-contenido,
+.vista-registro-contenido {
   animation: fade-in 0.5s ease;
 }
 
@@ -465,4 +467,251 @@ label.btn {
 /* Al elegir un juego en el buscador, su tarjeta queda resaltada */
 .game-card:target {
   outline: 3px solid var(--aqua);
+}
+
+/* =========================================
+   LOGIN Y REGISTRO (solo decoracion)
+   ========================================= */
+
+/* Ocultas por defecto; se muestran con su radio, igual que el catalogo */
+.vista-login-contenido,
+.vista-registro-contenido {
+  display: none;
+}
+
+#vista-login:checked ~ .vista-inicio-contenido,
+#vista-registro:checked ~ .vista-inicio-contenido {
+  display: none;
+}
+
+#vista-login:checked ~ .vista-login-contenido,
+#vista-registro:checked ~ .vista-registro-contenido {
+  display: block;
+}
+
+.seccion-login {
+  min-height: 75vh;
+}
+
+/* Caja centrada */
+.login-caja {
+  max-width: 340px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-logo {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  border-radius: 10px;
+}
+
+.login-caja h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+/* Tarjeta del formulario (y la de "eres nuevo") con el pop cartoon */
+.login-form,
+.login-nuevo {
+  background-color: var(--fondo-tarjeta);
+  border: 1px solid rgba(46, 196, 168, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  animation: pop-in 0.6s ease-out backwards;
+}
+
+.login-form {
+  text-align: left;
+}
+
+.login-nuevo {
+  margin-top: 16px;
+  padding: 16px;
+  animation-delay: 0.15s;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  background-color: var(--verde-oscuro);
+  border: 1px solid var(--verde-azulado);
+  border-radius: 6px;
+  color: var(--texto-claro);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Al escribir, el campo brilla en aqua */
+.login-form input:focus {
+  outline: none;
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 3px rgba(46, 196, 168, 0.35);
+}
+
+.login-form .btn {
+  width: 100%;
+}
+
+/* "Contrasena" a la izquierda y "Olvidaste..." a la derecha */
+.fila-clave {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.login-olvido {
+  font-size: 0.8rem;
+  color: var(--aqua-claro);
+}
+
+/* Link "Crea una cuenta" / "Inicia sesion" */
+.login-nuevo label {
+  color: var(--aqua-claro);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* =========================================
+   PAGINA DE CADA JUEGO (estilo Steam)
+   ========================================= */
+
+/* Oculta por defecto; se muestra cuando su radio (justo antes) esta marcado */
+.pagina-juego {
+  display: none;
+  padding: 20px 30px 40px;
+  animation: fade-in 0.5s ease;
+}
+
+.radio-juego:checked + .pagina-juego {
+  display: block;
+}
+
+/* Al abrir un juego se oculta la vista Inicio */
+.radio-juego:checked ~ .vista-inicio-contenido {
+  display: none;
+}
+
+.game-card {
+  display: block;
+  cursor: pointer;
+}
+
+.pj-volver {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pj-titulo {
+  font-size: 1.8rem;
+  margin: 16px 0;
+}
+
+/* Imagenes a la izquierda, informacion a la derecha */
+.pj-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.pj-principal {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.pj-mini {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.pj-mini img {
+  flex: 1;
+  min-width: 0;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.pj-header {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.pj-desc {
+  margin: 12px 0;
+  color: var(--texto-suave);
+}
+
+.pj-datos {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.pj-datos dt {
+  color: var(--texto-suave);
+  text-transform: uppercase;
+}
+
+.pj-datos .pos { color: var(--aqua-claro); }
+.pj-datos .mix { color: #e0c36a; }
+.pj-datos .neg { color: #e57373; }
+
+.pj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.pj-tags span {
+  background-color: var(--verde-medio);
+  color: var(--aqua-claro);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.pj-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* Caja de compra */
+.pj-compra {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: var(--fondo-tarjeta);
+  border: 1px solid rgba(46, 196, 168, 0.3);
+  border-radius: 10px;
+  padding: 16px 20px;
+  animation: pop-in 0.6s ease-out backwards;
+}
+
+.pj-compra h3 {
+  flex: 1;
+}
+
+@media (max-width: 700px) {
+  .pj-layout {
+    grid-template-columns: 1fr;
+  }
 }
